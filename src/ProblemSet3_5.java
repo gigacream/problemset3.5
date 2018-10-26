@@ -25,6 +25,7 @@ public class ProblemSet3_5 {
 		ps.leapYears(3);
 		ps.palindromicNumbers(122);
 		ps.fibonacci(3);
+		ps.multiples(4,3, 2);
 	}
 	
 	/**
@@ -176,6 +177,19 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void multiples(int x, int y, int limit) {
+		long sum = 0;
+		
+		for (int m = 0; m < limit; m++) {
+			
+			if (m % x == 0 || m % y == 0) {
+				
+				sum += m;
+			}
+		}
+		
+		
+		System.out.println("The sum of all multiples of " + x + " and " + y + " less than " + limit + " is " + sum + ".");
 		
 	}
-}
+		
+	}
