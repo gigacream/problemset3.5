@@ -22,6 +22,9 @@ public class ProblemSet3_5 {
 		// test your solutions here
 		
 		ps.primes(1, 1000);
+		ps.leapYears(3);
+		ps.palindromicNumbers(122);
+		ps.fibonacci(3);
 	}
 	
 	/**
@@ -36,8 +39,29 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void primes(int start, int end) {
-		
-	}
+		boolean prime;
+		int primeCount = 0;
+		start = start + 1;
+		for (int i= start; i < end; i++) {
+			prime = true;
+			outerLoop:
+			for (int j = 2; j<= i/2; j++) {
+				if (i % j == 0) {
+					prime = false;
+					break outerLoop;
+				}
+			}
+	
+			if (prime == true) {
+				primeCount++;
+			}
+		}
+		if (primeCount== 1) {
+			System.out.println("There is " + primeCount + " " + "prime number"); }
+			else if (primeCount > 1) {
+				System.out.println("There are " + primeCount + " " + "prime numbers");	
+			}
+		}
 	
 	/**
 	 * What are the next @count leap years?
@@ -50,9 +74,42 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void leapYears(int count) {
-		
+		if (count < 1) {
+			System.out.println("Cannot compute " + count +" leap years. Please enter a value greater than or equal to 1");
+			}
+		else if (count == 1) {
+			System.out.println("The next leap year is 2020");
+		}
+		else if (count == 2) {
+			System.out.println("The next 2 leap years are 2020 and 2024");
+	}
+		else {
+			System.out.print("The next " + count + " leap years are ");
+			int x = 0;
+			int year = 2016;
+			while (x < count) {
+				year += 4;
+				if (year % 100 == 0 && year % 400 != 0) {
+					year += 4;
+				}
+				x++;
+				if (x == count) {
+					System.out.print("and " + year + ".");
+				}
+				else {
+					System.out.print(year + ", ");
+				}
+			}
+			System.out.println("");
+		}
 	}
 	
+				
+				
+			
+				
+		
+
 	/**
 	 * Is @number a palindromic number?
 	 * 
@@ -63,7 +120,22 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void palindromicNumbers(int number) {
+		int x;
+		int sum = 0;
+		int y;
+		int z = number;
 		
+		y = z;
+				while (z> 0) {
+					x=z% 10;
+							sum=(sum*10)+x;
+					z=z/10;
+			}
+		if(y == sum)
+			System.out.println(number + " is a palindromic number.");
+			else
+				System.out.println(number + " is not a palindromic number");
+			
 	}
 	
 	/**
@@ -78,6 +150,19 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void fibonacci(int n) {
+		int count = n ;
+		int x = 0;
+		int y = 1;
+		int i = 1;
+		while (i <= count) {
+			int priorSum = x + y;
+			x = y;
+			y = priorSum;
+			i++;
+			
+			
+		}
+		System.out.println("The " + count + "th Fibonacci number is " + x + ".");
 		
 	}
 	
